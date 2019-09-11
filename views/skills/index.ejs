@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Skills</title>
+</head>
+<body>
+    <h1>Skills #index</h1>
+    <ul>
+    <% skills.forEach(function(skill,idx) {%>
+    <li>
+        <form action="/skills/<%= skill.name %>?_method=DELETE" method="POST">
+        <button class='remove-button'>remove </button>
+        </form>
+        
+        <%= skill.level%>
+        &mdash;
+        <a href="/skills/<%= idx + 1 %>"><%= skill.name %></a>
+        &mdash;
+        <%= skill.description %>
+    </li>
+    <% }); %>
+        
+        <a href="/skills/new">Add Skills </a>
+        
+    </ul>
+</body>
+</html>
